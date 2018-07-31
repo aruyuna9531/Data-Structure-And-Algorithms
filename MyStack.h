@@ -215,17 +215,18 @@ private:
 public:
 	FiniteStack(int size=20){
 		//如果size小于等于0，应该不构造这个栈，因为没有大小
+		buff=NULL;
 		if(size<=0){
 			_stack_errno=_STACK_ERROR_F_CONSTRUCT_FAIL;
 			_stack_print_error_message();
-			throw _STACK_ERROR_F_CONSTRUCT_FAIL;
+			throw 1;
 		}
 		buff=new T[size];
 		//内存不足，同样构栈失败
 		if(buff==NULL){
 			_stack_errno=_STACK_ERROR_F_CONSTRUCT_FAIL;
 			_stack_print_error_message();
-			throw _STACK_ERROR_F_CONSTRUCT_FAIL;
+			throw 2;
 		}
 		maxSize=size;
 		used=0;
