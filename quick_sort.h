@@ -1,3 +1,5 @@
+#ifndef _QUICK_SORT
+#define _QUICK_SORT
 //快速排序
 void swap(int &i, int &j){
         int tmp=i;
@@ -34,3 +36,4 @@ void qsort(vector<T>& arr, int start, int end){
         qsort(arr,start,j-1);
         qsort(arr,j+1,end);
 }
+#endif //_QUICK_SORT
